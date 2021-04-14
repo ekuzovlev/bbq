@@ -1,0 +1,33 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.image-deck {
+  max-height: 250px;
+  width:100%;
+  object-fit:cover;
+}
+
+.bg-jumbotron {
+background-image:url('../images/event.jpg');
+background-repeat:no-repeat;
+background-position:center;
+object-fit:cover;
+}

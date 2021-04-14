@@ -1,0 +1,13 @@
+
+<div class="card mb-4 shadow-sm">
+    <%= image_pack_tag 'event.jpg', alt: 'Шашлыки', class: "card-img-top img-fluid image-deck" %>
+
+  <div class="card-body">
+    <h4 class="card-title"><%= event.title %></h4>
+    <ul class="list-unstyled mt-3 mb-4">
+      <li><small><%= event.datetime %></small></li>
+      <li><%= event.address %></li>
+    </ul>
+    <%= link_to 'Посмотреть', event_path(event), class: 'btn btn-success' %>
+  </div>
+</div>
