@@ -8,7 +8,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.hosts << "6656e50bfaa7.ngrok.io"
+  config.hosts << "85d9c9689de1.ngrok.io"
 
   # Do not eager load code on boot.
   config.eager_load = false
