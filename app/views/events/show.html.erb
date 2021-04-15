@@ -3,14 +3,11 @@
     <%= image_pack_tag 'event.jpg', alt: 'Шашлыки', class: "card-img-top img-fluid image-deck" %>
     <div class="card-body">
       <h5 class="card-title"><%= @event.title %></h5>
-      <p class="card-text"><%= link_to @event.address,
-                                       "https://yandex.ru/maps/?text=#{@event.address}" %></p>
+      <p class="card-text"><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></p>
       <p class="card-text"><small class="text-muted"><%= @event.datetime %></small></p>
       <% if current_user_can_edit?(@event) %>
-      <%= link_to 'Изменить', edit_event_path(@event),
-                  class: 'btn btn-lg btn-success' %>
-        <% end %>
+        <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-lg btn-success' %>
+      <% end %>
     </div>
   </div>
 </main>
-
