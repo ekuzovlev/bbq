@@ -1,0 +1,7 @@
+.alert-width {
+  max-width: max-content;
+}
+
+@media (min-width: 420px) {
+  .alert-width { min-width: 385px; }
+}
