@@ -1,8 +1,11 @@
-<h1>Редактирование события</h1>
+<div class="text-center mb-4">
+  <h1 class="h3 mb-3 font-weight-normal">Редактирование события</h1>
+</div>
 
-<div class="row">
-  <div class="col-md-6 buffer-top">
+<%= render 'form' %>
 
-    <%= render 'form' %>
-  </div>
+<div class="form-signin mt-n4">
+  <%= button_to t('event.destroy'), event_path(@event),
+                data: { confirm: t('confirm.are_you_sure') }, method: :delete,
+                class: "btn btn-sm btn-outline-danger" %>
 </div>
