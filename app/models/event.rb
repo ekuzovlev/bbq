@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   belongs_to :user
 
   has_many :comments
+  has_many :subscriptions
+  has_many :subscribers, through: :subscriptions, source: :user
 
   # Заголовок должен быть, и не может быть длиннее 255 букв
   validates :title, presence: true, length: {maximum: 255}
