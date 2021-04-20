@@ -1,6 +1,3 @@
-# (с) goodprogrammer.ru
-#
-# Контроллер вложенного ресурса подписок
 class SubscriptionsController < ApplicationController
   # Задаем «родительский» event для подписки
   before_action :set_event, only: [:create, :destroy]
@@ -8,6 +5,7 @@ class SubscriptionsController < ApplicationController
   # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
+  before_action :allowed_subscribe, only: [:create]
 
   def create
     # Болванка для новой подписки
@@ -24,12 +22,12 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    message = {notice: I18n.t('controllers.subscriptions.destroyed')}
+    message = { notice: I18n.t('controllers.subscriptions.destroyed') }
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = {alert: I18n.t('controllers.subscriptions.error')}
+      message = { alert: I18n.t('controllers.subscriptions.error') }
     end
 
     redirect_to @event, message
@@ -48,5 +46,11 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
+  def allowed_subscribe
+    if current_user == @event.user
+      redirect_to @event, notice: I18n.t('controllers.subscriptions.self_subscription_error')
+    end
   end
 end
