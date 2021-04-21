@@ -15,6 +15,8 @@ module ApplicationHelper
     end
   end
 
+
+
   def event_photo(event)
     photos = event.photos.persisted
 
