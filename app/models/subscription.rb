@@ -16,6 +16,8 @@ class Subscription < ApplicationRecord
 
   validate :allow_subscribe, if: -> { user.present? }
 
+  validate :check_email, unless: -> { user.present? }
+
   # переопределяем метод, если есть юзер, выдаем его имя,
   # если нет -- дергаем исходный переопределенный метод
   def user_name
@@ -38,5 +40,11 @@ class Subscription < ApplicationRecord
 
   def allow_subscribe
     errors.add(:base, message: I18n.t('errors.self_email_used')) if user.email == event.user.email
+  end
+
+  def check_email
+    if User.pluck(:email).include?(user_email)
+      errors.add(:base, message: I18n.t('errors.try_change_email'))
+    end
   end
 end
