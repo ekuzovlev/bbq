@@ -5,8 +5,6 @@ class SubscriptionsController < ApplicationController
   # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
-  before_action :allowed_subscribe, only: [:create]
-
   def create
     # Болванка для новой подписки
     @new_subscription = @event.subscriptions.build(subscription_params)
@@ -46,11 +44,5 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
-  end
-
-  def allowed_subscribe
-    if current_user == @event.user
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.self_subscription_error')
-    end
   end
 end
