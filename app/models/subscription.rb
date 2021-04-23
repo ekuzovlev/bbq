@@ -14,9 +14,9 @@ class Subscription < ApplicationRecord
   # для данного event_id один email может использоваться только один раз (если нет юзера, анонимная подписка)
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
-  validate :allow_subscribe, if: -> { user.present? }
+  validate :check_event_belong, if: -> { user.present? }
 
-  validate :check_email, unless: -> { user.present? }
+  validate :find_existing_email, unless: -> { user.present? }
 
   # переопределяем метод, если есть юзер, выдаем его имя,
   # если нет -- дергаем исходный переопределенный метод
@@ -38,13 +38,11 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def allow_subscribe
-    errors.add(:base, message: I18n.t('errors.self_email_used')) if user.email == event.user.email
+  def check_event_belong
+    errors.add(:base, message: I18n.t('errors.self_email_used')) if event.user == user
   end
 
-  def check_email
-    if User.pluck(:email).include?(user_email)
-      errors.add(:base, message: I18n.t('errors.try_change_email'))
-    end
+  def find_existing_email
+    errors.add(:base, message: I18n.t('errors.try_change_email')) if User.find_by(email: user_email).present?
   end
 end
