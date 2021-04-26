@@ -309,5 +309,13 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  ActionMailer::Base.default_url_options = { :host => "bbq-show.herokuapp.com" }
+  def default_url_options
+    if Rails.env.production?
+      ActionMailer::Base.default_url_options = { host: 'bbq-show.herokuapp.com', :protocol => 'https' }
+    elsif Rails.env.development?
+      ActionMailer::Base.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+    end
+  end
+
+  # ActionMailer::Base.default_url_options = { :host => "localhost:3000" }
 end
