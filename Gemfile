@@ -18,6 +18,9 @@ gem 'rmagick'
 
 gem 'fog-aws'
 
+gem "dotenv-rails"
+gem 'mailjet'
+
 group :production do
   gem 'pg'
 end

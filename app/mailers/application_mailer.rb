@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'bbq.show.mail@gmail.com'
+  default from: ENV["MAILJET_SENDER"]
   layout 'mailer'
 end
