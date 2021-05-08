@@ -13,20 +13,16 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <div class="event-photos">
-        <%# Выводим все фотографии события %>
-        <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-        </div>
+  <div class="row mb-4">
+      <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+  </div>
 
-        <%# Рисуем форму для добавления новой фотографии %>
-        <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
-      </div>
-      <div class="event-comments buffer-top">
+  <div class="row">
+    <%# Рисуем форму для добавления новой фотографии %>
+    <div class="col-md-8">
+      <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+
+      <div class="event-comments buffer-top mt-4">
         <%= render partial: 'comments/form',
                    locals: {comment: @new_comment || @event.comments.build} %>
 

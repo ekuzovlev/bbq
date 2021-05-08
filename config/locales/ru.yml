@@ -30,6 +30,7 @@ ru:
         user_email: 'Ваш email'
       photo:
         photo: 'Фотография'
+        upload_photo: 'Добавить фотографию'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
