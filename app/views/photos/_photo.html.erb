@@ -1,4 +1,8 @@
-  <%= link_to image_tag(photo.photo.url, class: "img-thumbnail"), photo.photo.url,
-              data: { toggle: "lightbox", gallery: "example-gallery",
-                      title: "Добавил #{render partial: 'users/user', object: photo.user}" },
-              class: "col-sm-2 mt-2" %>
+<div class="col mb-4">
+  <div class="card">
+      <%= link_to image_tag(photo.photo.url, class: "card-img-top"), photo.photo.url,
+                  data: { toggle: "lightbox", gallery: "example-gallery",
+                          title: "Добавил #{render partial: 'users/user', object: photo.user}" },
+                  class: "" %>
+    </div>
+</div>

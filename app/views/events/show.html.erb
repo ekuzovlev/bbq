@@ -13,8 +13,10 @@
     </div>
   </div>
 
-  <div class="row mb-4">
-      <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+
+
+  <div class="row row-cols-3 row-cols-md-6">
+    <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
   </div>
 
   <div class="row">
