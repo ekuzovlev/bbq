@@ -12,14 +12,14 @@
   </div>
 
   <div class="form-label-group">
-    <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Пароль #{t('devise.shared.minimum_password_length', count: @minimum_password_length) }" %>
     <% if @minimum_password_length %>
     <%= f.label :password, "Пароль #{t('devise.shared.minimum_password_length', count: @minimum_password_length) }" %>
     <% end %>
   </div>
 
   <div class="form-label-group">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "#{t('activerecord.attributes.user.password_confirmation')}" %>
     <%= f.label :password_confirmation %>
   </div>
 

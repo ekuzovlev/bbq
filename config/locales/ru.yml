@@ -72,6 +72,11 @@ ru:
   event:
     destroy: 'Удалить событие'
 
+  events:
+    form:
+      title: 'Название'
+      address: 'Место проведения'
+
   # Подтверждение действий
   confirm:
     are_you_sure: 'Вы уверены?'

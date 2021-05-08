@@ -2,12 +2,12 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form-label-group">
-    <%= f.text_field :title, class: 'form-control', placeholder: 'title' %>
+    <%= f.text_field :title, class: 'form-control', placeholder: t('.title') %>
     <%= f.label :title %>
   </div>
 
   <div class="form-label-group">
-    <%= f.text_field :address, class: 'form-control', placeholder: 'address' %>
+    <%= f.text_field :address, class: 'form-control', placeholder: t('.address') %>
     <%= f.label :address %>
   </div>
 
