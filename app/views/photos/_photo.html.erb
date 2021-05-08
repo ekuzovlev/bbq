@@ -1,8 +1,7 @@
 <div class="col mb-4">
   <div class="card">
-      <%= link_to image_tag(photo.photo.url, class: "card-img-top"), photo.photo.url,
-                  data: { toggle: "lightbox", gallery: "example-gallery",
-                          title: "Добавил #{render partial: 'users/user', object: photo.user}" },
-                  class: "" %>
-    </div>
+    <%= link_to image_tag(photo.photo.url, class: "card-img-top"), photo.photo.url,
+                data: { toggle: "lightbox", gallery: "example-gallery",
+                        title: "Добавил #{render partial: 'users/user', object: photo.user}" } %>
+  </div>
 </div>
