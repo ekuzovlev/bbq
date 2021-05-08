@@ -13,15 +13,13 @@
     </div>
   </div>
 
-
-
   <div class="row row-cols-3 row-cols-md-6">
     <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
   </div>
 
   <div class="row">
     <%# Рисуем форму для добавления новой фотографии %>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
 
       <div class="event-comments buffer-top mt-4">
@@ -35,7 +33,10 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
+      <div id="map" data-address="<%= @event.address %>" style="width: 100%; height: 400px">
+
+      </div>
       <div class="event-owner">
         <h4>Зовет:</h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
