@@ -1,3 +1,6 @@
+<%= javascript_include_tag "https://api-maps.yandex.ru/2.1/?apikey=#{ENV["YANDEX_MAP_API_KEY"]}&lang=ru_RU" %>
+<%= javascript_pack_tag 'map' %>
+
 <main role="main" class="container">
   <div class="card mb-3">
     <%# Выводим произвольную фотку в качестве фона для шапки события %>
