@@ -117,4 +117,3 @@ ru:
     errors:
       verification_failed: 'reCAPTCHA не прошла, попробуйте заново.'
       recaptcha_unreachable: 'reCAPTCHA не досутпна.'
-      
