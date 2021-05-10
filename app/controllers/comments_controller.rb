@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
 
-    if @new_comment.save
+    if check_captcha(@new_comment) && @new_comment.save
       notify_subscribers(@event, @new_comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
@@ -52,4 +52,7 @@ class CommentsController < ApplicationController
     end
   end
 
+  def check_captcha(model)
+    current_user.present? || verify_recaptcha(model: model)
+  end
 end

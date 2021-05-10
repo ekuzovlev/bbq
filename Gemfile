@@ -18,8 +18,10 @@ gem 'rmagick'
 
 gem 'fog-aws'
 
-gem "dotenv-rails"
+gem 'dotenv-rails'
 gem 'mailjet'
+
+gem 'recaptcha'
 
 group :production do
   gem 'pg'
