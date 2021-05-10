@@ -112,3 +112,9 @@ ru:
       datetime: 'Состоится'
       author: 'Автор'
       owner: 'Организатор'
+
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA не прошла, попробуйте заново.'
+      recaptcha_unreachable: 'reCAPTCHA не досутпна.'
+      
