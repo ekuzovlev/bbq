@@ -75,6 +75,9 @@ ru:
   event:
     destroy: 'Удалить событие'
 
+  photo:
+    destroy: 'Удалить фото'
+
   events:
     form:
       title: 'Название'

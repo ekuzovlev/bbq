@@ -2,6 +2,13 @@
   <div class="card">
     <%= link_to image_tag(photo.photo.url, class: "card-img-top"), photo.photo.url,
                 data: { toggle: "lightbox", gallery: "example-gallery",
-                        title: "Добавил #{render partial: 'users/user', object: photo.user}" } %>
+                        title: "Добавил #{render partial: 'users/user', object: photo.user}",
+
+                        footer: "#{ if current_user_can_edit?(photo)
+                                      button_to t('photo.destroy'), event_photo_path(photo.event, photo),
+                                        data: { confirm: t('confirm.are_you_sure') }, method: :delete,
+                                        class: "btn btn-sm btn-outline-danger"
+                                    end }"
+                } %>
   </div>
 </div>

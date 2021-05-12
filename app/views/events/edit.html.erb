@@ -4,6 +4,18 @@
 
 <%= render 'form' %>
 
+<% @event.photos.each do |photo| %>
+  <div>
+    <%= image_tag(photo.photo.thumb.url) %>
+    <%= link_to(
+          fa_icon('times'),
+          event_photo_path(photo.event, photo),
+          method: :delete,
+          data: {confirm: t('confirm.are_you_sure')}
+        ) %>
+  </div>
+<% end %>
+
 <div class="form-signin mt-n4">
   <%= button_to t('event.destroy'), event_path(@event),
                 data: { confirm: t('confirm.are_you_sure') }, method: :delete,
