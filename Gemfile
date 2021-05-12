@@ -28,6 +28,7 @@ end
 group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'web-console', '>= 4.1.0'
+  gem "letter_opener"
 end
 
 group :development, :test do

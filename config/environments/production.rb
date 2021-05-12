@@ -51,6 +51,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "bbq_production"
 
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.default_options = { from: 'no-reply@nblist.ru' }
+
   # Базовый URL сайта для правильных ссылок в письмах
   # ПРОПИСЫВАЙТЕ свой!
   config.action_mailer.default_url_options = { :host => 'nblist.ru', :protocol => 'https' }
