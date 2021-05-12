@@ -24,7 +24,8 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV["MAILJET_SENDER"]
+  # config.mailer_sender = ENV["MAILJET_SENDER"]
+  config.mailer_sender = 'no-reply@nblist.ru'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -309,5 +310,5 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  ActionMailer::Base.default_url_options = { :host => "bbq-show.herokuapp.com" }
+  ActionMailer::Base.default_url_options = { :host => "nblist.ru" }
 end
