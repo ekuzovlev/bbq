@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap'
 import '../scripts/script'
 import '../styles/application'
 import 'ekko-lightbox'
+import 'air-datepicker'
 
 Rails.start()
 ActiveStorage.start()
