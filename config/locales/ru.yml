@@ -17,6 +17,7 @@ ru:
         avatar: 'Фотография пользователя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
       event:
         title: 'Название'
         address: 'Место проведения'
