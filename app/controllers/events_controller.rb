@@ -24,8 +24,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @event = current_user.events.build(event_params)
