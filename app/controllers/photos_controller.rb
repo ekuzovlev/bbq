@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
     end
 
     # И в любом случае редиректим его на событие
-    redirect_to @event, message
+    redirect_back fallback_location: root_path
   end
 
   private
