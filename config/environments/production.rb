@@ -51,18 +51,11 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "bbq_production"
 
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_options = { from: 'no-reply@nblist.ru' }
-
-  # Базовый URL сайта для правильных ссылок в письмах
-  # ПРОПИСЫВАЙТЕ свой!
-  config.action_mailer.default_url_options = { :host => 'nblist.ru', :protocol => 'https' }
-
-  # Ошибки рассылки юзеру не показываем
   config.action_mailer.raise_delivery_errors = false
-
-  # Делать рассылку писем (при false приложение только имитирует отправку)
+  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'nblist.ru', protocol: 'https' }
+  config.action_mailer.default_options = { from: 'no_reply@nblist.ru' }
 
   # Устанавливаем протокол, по которому отправлять (SMTP)
   # config.action_mailer.delivery_method = :smtp
