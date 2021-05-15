@@ -1,19 +1,19 @@
 <div class="text-center mb-4">
   <h1 class="h3 mb-3 font-weight-normal"><%= t('.change_your_password') %></h1>
-
+</div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form-signin" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="form-label-group">
-      <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+      <%= f.password_field :password, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Пароль #{t('devise.shared.minimum_password_length', count: @minimum_password_length) }" %>
       <% if @minimum_password_length %>
-        <%= f.label :password, "#{t('.new_password')} #{t('devise.shared.minimum_password_length', count: @minimum_password_length) }" %>
+        <%= f.label :password, "Пароль #{t('devise.shared.minimum_password_length', count: @minimum_password_length) }" %>
       <% end %>
     </div>
 
     <div class="form-label-group">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "inputPassword", class: "form-control", placeholder: "#{t('.confirm_new_password')}" %>
       <%= f.label :password_confirmation, t('.confirm_new_password') %>
     </div>
 
@@ -22,4 +22,3 @@
     </div>
   <% end %>
 
-</div>
