@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_event, only: [:create, :destroy]
-  before_action :set_comment, only: [:destroy]
+  before_action :set_event, only: [:create, :edit, :update, :destroy]
+  before_action :set_comment, only: [:update, :edit, :destroy]
 
   def create
     @new_comment = @event.comments.build(comment_params)
@@ -11,6 +11,14 @@ class CommentsController < ApplicationController
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
       render 'events/show', alert: I18n.t('controllers.comments.error')
+    end
+  end
+
+  def update
+    if current_user_can_edit?(@comment) && @comment.update(comment_params)
+      redirect_to @event, notice: I18n.t('controllers.comments.updated')
+    else
+      render :edit
     end
   end
 
@@ -25,6 +33,8 @@ class CommentsController < ApplicationController
 
     redirect_to @event, message
   end
+
+  def edit; end
 
   private
 

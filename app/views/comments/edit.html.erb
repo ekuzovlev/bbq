@@ -1,0 +1,31 @@
+<%= form_for [@event, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="form-errors">
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li class="form-error-message"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <% unless user_signed_in? %>
+    <div class="form-group">
+      <%= f.label :user_name %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= recaptcha_tags unless current_user.present? %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+    <%= link_to "Назад", event_path(@event), class: "btn btn-secondary" %>
+  </div>
+<% end %>
