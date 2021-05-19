@@ -21,6 +21,7 @@ gem 'mailjet'
 
 gem 'recaptcha'
 
+gem 'pundit'
 group :production do
   gem 'pg'
 end
@@ -35,4 +36,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'shoulda-matchers', '~> 4.0'
 end
