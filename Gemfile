@@ -9,6 +9,11 @@ gem 'puma', '~> 5.0'
 gem 'webpacker', '~> 5.0'
 
 gem 'devise-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
+
+
 gem 'rails-i18n', '~> 6.0.0'
 
 gem 'carrierwave', '~> 2.0'
