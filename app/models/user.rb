@@ -1,5 +1,3 @@
-require "open-uri"
-
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -22,7 +20,7 @@ class User < ApplicationRecord
   def self.find_for_facebook_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
-    fb_avatar = URI.parse(access_token.info.image)
+    fb_avatar = access_token.info.image
 
     user&.update(remote_avatar_url: fb_avatar) unless user&.avatar.present?
 
