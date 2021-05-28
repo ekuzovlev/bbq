@@ -12,6 +12,7 @@ gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
+gem 'omniauth-vkontakte'
 
 
 gem 'rails-i18n', '~> 6.0.0'

@@ -275,6 +275,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :facebook, ENV['OMNIAUTH_FACEBOOK_ID'], ENV['OMNIAUTH_FACEBOOK_SECRET'], callback_url: 'https://nblist.ru/users/auth/facebook/callback'
+  config.omniauth :vkontakte, ENV['VK_API_ID'], ENV['VK_API_SECRET'], callback_url: 'https://nblist.ru/users/auth/vkontakte/callback', scope: 'email', image_size: 'original'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

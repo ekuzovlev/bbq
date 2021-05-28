@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -20,6 +20,9 @@ class User < ApplicationRecord
   def self.find_for_facebook_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
+    fb_avatar = access_token.info.image
+
+    user&.update(remote_avatar_url: fb_avatar) unless user&.avatar.present?
 
     return user if user.present?
 
@@ -30,6 +33,27 @@ class User < ApplicationRecord
     where(url: url, provider: provider).first_or_create! do |user|
       user.email = email
       user.password = Devise.friendly_token.first(16)
+      user.remote_avatar_url = fb_avatar
+    end
+  end
+
+  def self.find_for_vkontakte_oauth(access_token)
+    email = access_token.info.email
+    user = where(email: email).first
+    vk_avatar = access_token.info.image
+
+    user&.update(remote_avatar_url: vk_avatar) unless user&.avatar.present?
+
+    return user if user.present?
+
+    provider = access_token.provider
+    id = access_token.extra.raw_info.id
+    url = "https://vk.ru/#{id}"
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+      user.remote_avatar_url = vk_avatar
     end
   end
 
