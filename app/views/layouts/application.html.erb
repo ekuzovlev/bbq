@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
+  <title><%= content_for?(:title) ? "Bbq — #{yield(:title)}" : "Bbq" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all' %>
@@ -40,14 +40,14 @@
         <div class="col-6 col-md">
           <h5></h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#"></a></li>
+            <li><%= link_to 'Политика конфедициальности', page_path('privacy_policy'), class: "text-muted" %></li>
           </ul>
         </div>
 
         <div class="col-6 col-md">
           <h5></h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#"></a></li>
+              <li><%= link_to 'Пользовательское соглашение', page_path('terms_conditions'), class: "text-muted" %></li>
             </ul>
         </div>
 

@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-vkontakte'
 
+gem 'high_voltage', '~> 3.1'
 
 gem 'rails-i18n', '~> 6.0.0'
 
