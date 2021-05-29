@@ -21,7 +21,7 @@ class User < ApplicationRecord
     email = access_token.info.email
     user = where(email: email).first
 
-    return user && set_avatar if user.present?
+    return user && find_avatar(user) if user.present?
 
     provider = access_token.provider
     id = access_token.extra.raw_info.id
@@ -54,6 +54,6 @@ class User < ApplicationRecord
   end
 end
 
-def set_avatar
+def find_avatar(user)
   user.update(remote_avatar_url: avatar) unless user.avatar.present?
 end
