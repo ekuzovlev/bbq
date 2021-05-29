@@ -122,3 +122,7 @@ ru:
     errors:
       verification_failed: 'reCAPTCHA не прошла, попробуйте заново.'
       recaptcha_unreachable: 'reCAPTCHA не досутпна.'
+
+  sign_in_whith_provider:
+    facebook: 'Войти через Facebook'
+    vkontakte: 'Войти через ВКонтакте'
