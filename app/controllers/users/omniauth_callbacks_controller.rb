@@ -2,11 +2,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token, only: :facebook
 
   def facebook
-    oauth_user(__callee__)
+    oauth_user(facebook)
   end
 
   def vkontakte
-    oauth_user(__callee__)
+    oauth_user(vkontakte)
   end
 
   private
