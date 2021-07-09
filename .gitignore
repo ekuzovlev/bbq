@@ -48,3 +48,6 @@ yarn-debug.log*
 
 localhost.crt
 localhost.key
+
+my_key
+my_key.pub

@@ -34,6 +34,14 @@ group :production do
 end
 
 group :development do
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.3", require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-passenger', '>= 0.2.1', require: false
+  gem 'capistrano-resque', require: false
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'web-console', '>= 4.1.0'
   gem "letter_opener"
